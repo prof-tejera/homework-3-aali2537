@@ -7,50 +7,54 @@ import "./LoginForm.css";
 class LoginForm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       username: "",
       password: ""
     };
   }
 
+  // Prints username and password to console on login and clears fields
+  formSubmit = (e) => {
+    e.preventDefault();
+
+    this.setState((prevState) => ({
+      username: "",
+      password: ""
+    }));
+
+    console.log(
+      `Login submitted and input fields cleared! Username: ${this.state.username} | Password: ${this.state.password}`
+    );
+  };
+
+  //Updates state with current username value
+  usernameChange = (e) => {
+    this.setState((prevState) => ({
+      username: e.target.value
+    }));
+  };
+
+  //Update state with current password value
+  passwordChange = (e) => {
+    this.setState((prevState) => ({
+      password: e.target.value
+    }));
+  };
+
   render() {
-    const handlers = {
-      formSubmit: (e) => {
-        e.preventDefault();
-
-        this.setState((prevState) => ({
-          username: "",
-          password: ""
-        }));
-
-        console.log(
-          `Login submitted and input fields cleared! Username: ${this.state.username} | Password: ${this.state.password}`
-        );
-      },
-      usernameChange: (e) => {
-        this.setState((prevState) => ({
-          username: e.target.value
-        }));
-      },
-      passwordChange: (e) => {
-        this.setState((prevState) => ({
-          password: e.target.value
-        }));
-      }
-    };
-
     return (
       <Panel>
-        <form onSubmit={handlers.formSubmit}>
+        <form onSubmit={this.formSubmit}>
           <Input
             placeholder="Username"
-            handler={handlers.usernameChange}
+            handler={this.usernameChange}
             value={this.state.username}
             type="text"
           ></Input>
           <Input
             placeholder="Password"
-            handler={handlers.passwordChange}
+            handler={this.passwordChange}
             value={this.state.password}
             type="password"
           ></Input>
