@@ -90,11 +90,15 @@ class Pager extends Component {
               className="Btn-selected Default-button"
               text={i}
               onClick={this.updatePageState}
+              key={i}
             ></Button>
           );
         } else {
           buttons.push(
-            <Button text={i} onClick={this.updatePageState}></Button>
+            <Button 
+              text={i} 
+              onClick={this.updatePageState}
+              key={i}></Button>
           );
         }
       }
@@ -119,9 +123,17 @@ class Pager extends Component {
           <Button text="Update"></Button>
         </form>
         <Panel>
-          <Button text="<" onClick={this.updatePageState} disabled={parseInt(this.state.currentPage) === 1}></Button>
+          <Button 
+            text="<" 
+            onClick={this.updatePageState} 
+            disabled={parseInt(this.state.currentPage) === 1}
+            ></Button>
           {createButtons()}
-          <Button text=">" onClick={this.updatePageState} disabled={this.state.currentPage === this.state.totalPages}></Button>
+          <Button 
+            text=">" 
+            onClick={this.updatePageState} 
+            disabled={parseInt(this.state.currentPage) === parseInt(this.state.totalPages)}
+            ></Button>
         </Panel>
       </>
     );
