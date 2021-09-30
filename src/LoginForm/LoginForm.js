@@ -14,7 +14,7 @@ class LoginForm extends Component {
     };
   }
 
-  // Prints username and password to console on login and clears fields
+  // Prints username and password to console on form submission and clears fields
   formSubmit = (e) => {
     e.preventDefault();
 
