@@ -1,7 +1,7 @@
-import { Component } from 'react';
-import Panel from 'components/Panel/Panel';
-import Button from 'components/Button/Button';
-import './MediaButtons.css';
+import { Component } from "react";
+import Panel from "components/Panel/Panel";
+import Button from "components/Button/Button";
+import "./MediaButtons.css";
 
 class MediaButtons extends Component {
   render() {

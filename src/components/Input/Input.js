@@ -1,8 +1,15 @@
-import { Component } from 'react';
+import { Component } from "react";
 
 class Input extends Component {
   render() {
-    return <input />;
+    return (
+      <input
+        placeholder={this.props.placeholder}
+        onChange={this.props.handler}
+        value={this.props.value}
+        type={this.props.type}
+      ></input>
+    );
   }
 }
 
