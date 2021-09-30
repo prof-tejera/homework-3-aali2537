@@ -17,47 +17,23 @@ class LoginForm extends Component {
   // Prints username and password to console on form submission and clears fields
   formSubmit = (e) => {
     e.preventDefault();
-
-    this.setState((prevState) => ({
-      username: "",
-      password: ""
-    }));
+    const username = e.target[0].value;
+    const password = e.target[1].value;
 
     console.log(
-      `Login submitted and input fields cleared! Username: ${this.state.username} | Password: ${this.state.password}`
+      `Login submitted and input fields cleared! Username: ${username} | Password: ${password}`
     );
-  };
 
-  //Updates state with current username value
-  usernameChange = (e) => {
-    this.setState((prevState) => ({
-      username: e.target.value
-    }));
-  };
-
-  //Update state with current password value
-  passwordChange = (e) => {
-    this.setState((prevState) => ({
-      password: e.target.value
-    }));
+    e.target[0].value = "";
+    e.target[1].value = "";
   };
 
   render() {
     return (
       <Panel>
         <form onSubmit={this.formSubmit}>
-          <Input
-            placeholder="Username"
-            handler={this.usernameChange}
-            value={this.state.username}
-            type="text"
-          ></Input>
-          <Input
-            placeholder="Password"
-            handler={this.passwordChange}
-            value={this.state.password}
-            type="password"
-          ></Input>
+          <Input placeholder="Username" name="username"></Input>
+          <Input placeholder="Password" type="password" name="password"></Input>
           <Button text="Login"></Button>
         </form>
       </Panel>
