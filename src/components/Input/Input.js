@@ -1,8 +1,8 @@
-import { Component } from 'react';
+import { Component } from "react";
 
 class Input extends Component {
   render() {
-    return <input />;
+    return <input {...this.props}></input>;
   }
 }
 

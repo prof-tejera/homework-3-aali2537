@@ -1,0 +1,8 @@
+.App-content {
+  flex-direction: column;
+  align-items: center;
+}
+
+.Btn-selected {
+  background-color: #2b77f3;
+}
